@@ -1,0 +1,327 @@
+@border-color: #ccc;
+@words-color: #000;
+*{
+    box-sizing:border-box;
+}
+// 顶部通栏
+header {
+    border-bottom: 1px solid @border-color; // text-align: center;
+    .container {
+        .row {
+            height: 40px;
+            >div {
+                height: 40px;
+                line-height: 40px;
+                border-right: 1px solid @border-color;
+                text-align: center;
+            }
+            >div a {
+                color: @words-color;
+                text-decoration: none;
+                position: relative;
+                outline: none;
+
+               
+            }
+            .mobile {
+                display: block;
+                >img {
+                    display: none;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                &:hover img {
+                    display: block;
+                    z-index: 999;
+                }
+            }
+        }
+    }
+}
+
+//导航样式
+#nav {
+    
+    
+    background-color: #fff;
+    margin-bottom: 0; // 导航条头部
+    width: 100%;
+    z-index: 998;
+
+    //top一定要为0,要不然导航条与顶部就会有缝隙;
+    //不能加固定定位,加了固定定位就width没有100%宽度;
+    top:0;
+    
+    .navbar-header {
+        .navbar-brand {
+            //由于这里的框架把导航栏的高写死了50px;所有要用80px覆盖它
+            height: 80px;
+            line-height: 50px;
+            .icon-icon {
+                font-size: 30px;
+                color: red;
+            }
+            .icon-logo {
+                font-size: 30px;
+                color: @words-color;
+            }
+        }
+    } // 导航条身体
+    .navbar-collapse {
+        .navbar-nav {
+            >li {
+                >a {
+                    height: 80px;
+                    line-height: 50px;
+                }
+                &:hover a {
+                    border-bottom: 2px solid red;
+                }
+            }
+        }
+    }
+}
+
+//轮播图样式
+#scroll {
+    .large-img {
+        display: block;
+        width: 100%;
+        height: 410px;
+        background-position: center center;
+    }
+    .small-img {
+        display: block;
+        >img {
+            width: 100%;
+        }
+    }
+} // 特色广告区域
+#feature {
+    padding: 40px;
+
+    .media {
+        margin-bottom: 15px;
+        a {
+            color: rgb(102, 102, 102);
+        }
+        a:hover {
+            color: red;
+        }
+    }
+} //立即预约
+#booking {
+    padding: 20px;
+    border-top: 1px solid @border-color;
+    border-bottom: 1px solid @border-color;
+} //商品推荐区
+#products {
+    background-color: rgb(240, 240, 240);
+    .container {
+        
+        .ul-wapper {
+            overflow: auto;
+            .nav-tabs {
+            
+                width: 590px;
+              
+                // ul的宽度是写死的所有li盒子的宽为580px;
+                border-bottom: none;
+                >li {
+                    margin-bottom:0;
+                    >a {
+                        color: black;
+                        font-size: 16px;
+                        background-color: transparent;
+                      
+                    }
+                    &:active {
+                        a {
+                            border-bottom: 2px solid red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//tab body
+.tab-content {
+    .tab-pane {
+        .row {
+            margin-top: 20px;
+            >div {
+                &:first-child {
+                    .productBox {
+                        color: white;
+                        background: #e92322;
+                        &::before {
+                            content: "\e915";
+                            font-family: 'itcast';
+                            position: absolute;
+                            background-repeat: no-repeat;
+                            font-size: 30px;
+                            top: -6px;
+                        }
+                    }
+                }
+            }
+            .productBox {
+                margin-bottom: 20px;
+                background: white;
+                color: black;
+                display: flex;
+                position: relative;
+            }
+            .product-left {
+                flex: 1;
+                height: 160px;
+                padding: 10px;
+                >h4 {
+                    text-align: center;
+                }
+                .price {
+                    margin-bottom: 10px;
+                    p {
+                        margin-bottom: 0;
+                    }
+                    .pull-right {
+                        text-align: right;
+                    }
+                }
+            }
+            .product-right {
+                width: 120px;
+                height: 160px;
+                position: relative;
+                padding: 45px 0px;
+                text-align: center;
+                border-left: 1px dashed #ddd;
+                >p {
+                    margin-bottom: 0;
+                    >strong {
+                        font-size: 30px;
+                    }
+                }
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute;
+                    background: #f0f0f0;
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 50%;
+                    left: -8px;
+                }
+                &::before {
+                    top: -10px;
+                }
+                &::after {
+                    bottom: -10px;
+                }
+            } // .product-right:nth-child(2){
+            //     .tooltip{
+            //         button:first-child{
+            //              background:none;
+            //              border:1px solid red;
+            //         }
+            //     }
+            // }
+        }
+    }
+}
+
+#news {
+    .container {
+        .row {
+            .col-md-2 {
+                position: relative;
+                >h4 {
+                    text-align: center;
+                    margin-bottom: 10px;
+                    margin-top: 40px;
+                    line-height: 40px;
+                    border-bottom: 1px dashed @border-color;
+                }
+                &::before {
+                    content: "";
+                    width: 12px;
+                    height: 12px;
+                    border: 1px solid @border-color;
+                    border-radius: 50%;
+                    position: absolute;
+                    left: 180px;
+                    top: 74px;
+                }
+            }
+            .col-md-1 {
+                >ul {
+                    margin-top: 20px;
+                    >li {
+                        margin-top: 16px;
+                        a {
+                            border-radius: 50%;
+                            border: none;
+                            &:hover {
+                                background-color: red;
+                            }
+                            i {
+                                font-size: 30px;
+                                color: @words-color
+                            }
+                        }
+                    }
+                   >li.active a {
+                        border-radius: 50%;
+                        border: none;
+                        background-color: red;
+                    }
+                }
+            }
+
+            .col-md-7{
+             .tab-content{
+                 margin-top: 40px;
+                 >div>li{
+                     margin-bottom: 10px;
+                     list-style: none;
+                     font-size: 16px;
+                 }
+             }   
+            }
+        }
+    }
+}
+
+#parner{
+    padding: 30px 0;
+    .container {
+        >h3 {
+            text-align: center;
+        }
+        >ul {
+            display: flex;
+            /* 移动端比较小放9个出现滚动条 需要换行 */
+            flex-wrap: wrap;
+            >li {
+                flex: 1;
+                list-style: none;
+                min-width: 60px;
+                >a {
+                    color: @words-color;
+                    display: block;
+                    text-align: center;
+                    &:hover {
+                        color:red;
+                        text-decoration: none;
+                    }
+                    >i {
+                        font-size: 60px;
+                    }
+                }
+            }
+        }
+    }
+}
